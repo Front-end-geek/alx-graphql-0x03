@@ -3,8 +3,7 @@ import { GET_EPISODES } from '@/graphql/queries';
 import { EpisodeProps } from '@/interfaces';
 import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import ErrorBoundary from '@/components/ErrorBoundary';
-import ErrorProneComponent from '@/components/ErrorProneComponent';
+
 
 const Home: React.FC = () => {
   const [page, setPage] = useState<number>(1);
@@ -25,8 +24,6 @@ const Home: React.FC = () => {
   const info = data?.episodes.info;
 
   return (
-    <ErrorBoundary>
-      <ErrorProneComponent/>
     <div className='min-h-screen flex flex-col bg-gradient-to-b from-[#A3D5E0] to-[#F4F4F4] text-gray-800'>
       {/* Header */}
       <header className='bg-[#4CA1AF] text-white py-6 text-center shadow-md'>
@@ -79,7 +76,6 @@ const Home: React.FC = () => {
         <p>&copy; 2024 Rick and Morty Fan Page</p>
       </footer>
     </div>
-    </ErrorBoundary>
   );
 };
 
